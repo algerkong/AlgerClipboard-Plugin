@@ -1,0 +1,36 @@
+name: Build Check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  detect-plugins:
+    runs-on: ubuntu-latest
+    outputs:
+      plugins: ${{ steps.detect.outputs.plugins }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: detect
+        run: |
+          plugins=$(ls -d plugins/*/Cargo.toml 2>/dev/null | sed 's|plugins/||;s|/Cargo.toml||' | jq -R -s -c 'split("\n") | map(select(. != ""))')
+          echo "plugins=$plugins" >> "$GITHUB_OUTPUT"
+          echo "Detected plugins with backend: $plugins"
+
+  build:
+    needs: detect-plugins
+    if: needs.detect-plugins.outputs.plugins != '[]'
+    strategy:
+      matrix:
+        plugin: ${{ fromJson(needs.detect-plugins.outputs.plugins) }}
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Build ${{ matrix.plugin }}
+        run: |
+          cd plugins/${{ matrix.plugin }}
+          cargo build --release

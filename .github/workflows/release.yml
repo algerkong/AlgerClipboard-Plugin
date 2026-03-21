@@ -1,0 +1,206 @@
+name: Release Plugin
+
+on:
+  push:
+    tags:
+      - '*-v*'  # e.g. ide-projects-v1.0.0
+
+permissions:
+  contents: write
+
+jobs:
+  parse-tag:
+    runs-on: ubuntu-latest
+    outputs:
+      plugin_id: ${{ steps.parse.outputs.plugin_id }}
+      version: ${{ steps.parse.outputs.version }}
+    steps:
+      - id: parse
+        run: |
+          TAG="${GITHUB_REF#refs/tags/}"
+          # Parse "ide-projects-v1.0.0" → plugin_id="ide-projects", version="1.0.0"
+          PLUGIN_ID=$(echo "$TAG" | sed 's/-v[0-9].*$//')
+          VERSION=$(echo "$TAG" | sed 's/.*-v//')
+          echo "plugin_id=$PLUGIN_ID" >> "$GITHUB_OUTPUT"
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "Plugin: $PLUGIN_ID, Version: $VERSION"
+
+  build:
+    needs: parse-tag
+    strategy:
+      matrix:
+        include:
+          - os: windows-latest
+            platform: windows
+            lib_ext: dll
+            lib_prefix: ""
+          - os: macos-latest
+            platform: macos
+            lib_ext: dylib
+            lib_prefix: lib
+          - os: ubuntu-latest
+            platform: linux
+            lib_ext: so
+            lib_prefix: lib
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+
+      - name: Build backend
+        if: hashFiles(format('plugins/{0}/Cargo.toml', needs.parse-tag.outputs.plugin_id)) != ''
+        run: |
+          cd plugins/${{ needs.parse-tag.outputs.plugin_id }}
+          cargo build --release
+
+      - name: Find library
+        id: find-lib
+        shell: bash
+        run: |
+          PLUGIN_ID="${{ needs.parse-tag.outputs.plugin_id }}"
+          PLUGIN_DIR="plugins/${PLUGIN_ID}"
+          if [ ! -f "$PLUGIN_DIR/Cargo.toml" ]; then
+            echo "has_backend=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          echo "has_backend=true" >> "$GITHUB_OUTPUT"
+          # Get library name from Cargo.toml
+          LIB_NAME=$(grep '^name' "$PLUGIN_DIR/Cargo.toml" | head -1 | sed 's/.*"\(.*\)".*/\1/' | tr '-' '_')
+          LIB_FILE="${{ matrix.lib_prefix }}${LIB_NAME}.${{ matrix.lib_ext }}"
+          echo "lib_file=$LIB_FILE" >> "$GITHUB_OUTPUT"
+          echo "Library: $LIB_FILE"
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: backend-${{ matrix.platform }}
+          path: |
+            plugins/${{ needs.parse-tag.outputs.plugin_id }}/target/release/*.${{ matrix.lib_ext }}
+          if-no-files-found: ignore
+
+  package:
+    needs: [parse-tag, build]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: artifacts
+
+      - name: Package plugin
+        env:
+          PLUGIN_ID: ${{ needs.parse-tag.outputs.plugin_id }}
+          VERSION: ${{ needs.parse-tag.outputs.version }}
+        run: |
+          PLUGIN_DIR="plugins/${PLUGIN_ID}"
+          STAGING="${PLUGIN_ID}"
+          ZIP_NAME="${PLUGIN_ID}-${VERSION}.zip"
+
+          mkdir -p "$STAGING/backend" "$STAGING/frontend"
+
+          # Copy manifest
+          cp "$PLUGIN_DIR/manifest.json" "$STAGING/"
+
+          # Copy frontend
+          if [ -d "$PLUGIN_DIR/frontend" ]; then
+            cp -r "$PLUGIN_DIR/frontend/"* "$STAGING/frontend/"
+          fi
+
+          # Copy backend binaries from all platforms
+          for platform in windows macos linux; do
+            artifact_dir="artifacts/backend-${platform}"
+            if [ -d "$artifact_dir" ]; then
+              find "$artifact_dir" -type f \( -name "*.dll" -o -name "*.dylib" -o -name "*.so" \) \
+                -exec cp {} "$STAGING/backend/" \;
+            fi
+          done
+
+          # List contents
+          echo "=== Package contents ==="
+          find "$STAGING" -type f | sort
+
+          # Create zip
+          zip -r "$ZIP_NAME" "$STAGING/"
+
+          # Compute sha256
+          SHA256=$(sha256sum "$ZIP_NAME" | awk '{print $1}')
+          SIZE=$(stat -c%s "$ZIP_NAME")
+          echo "sha256=$SHA256" >> "$GITHUB_ENV"
+          echo "size=$SIZE" >> "$GITHUB_ENV"
+          echo "zip_name=$ZIP_NAME" >> "$GITHUB_ENV"
+          echo "SHA256: $SHA256, Size: $SIZE"
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: "${{ needs.parse-tag.outputs.plugin_id }} v${{ needs.parse-tag.outputs.version }}"
+          body: |
+            ## ${{ needs.parse-tag.outputs.plugin_id }} v${{ needs.parse-tag.outputs.version }}
+
+            ### Installation
+            1. Download `${{ env.zip_name }}`
+            2. Extract to your AlgerClipboard plugins directory
+            3. Restart AlgerClipboard and enable in Settings > Plugins
+
+            **SHA256:** `${{ env.sha256 }}`
+          files: ${{ env.zip_name }}
+
+      - name: Update registry
+        env:
+          PLUGIN_ID: ${{ needs.parse-tag.outputs.plugin_id }}
+          VERSION: ${{ needs.parse-tag.outputs.version }}
+        run: |
+          PLUGIN_DIR="plugins/${PLUGIN_ID}"
+          TAG="${PLUGIN_ID}-v${VERSION}"
+          DOWNLOAD_URL="https://github.com/${{ github.repository }}/releases/download/${TAG}/${PLUGIN_ID}-${VERSION}.zip"
+
+          # Read plugin metadata from manifest
+          python3 << PYEOF
+          import json
+
+          with open("${PLUGIN_DIR}/manifest.json") as f:
+              manifest = json.load(f)
+
+          with open("registry/plugins.json") as f:
+              registry = json.load(f)
+
+          # Update or add plugin entry
+          entry = {
+              "id": manifest["id"],
+              "name": manifest["name"],
+              "description": manifest.get("description", ""),
+              "author": manifest.get("author", ""),
+              "version": "${VERSION}",
+              "icon": manifest.get("icon", ""),
+              "api_version": manifest.get("api_version", "1"),
+              "platforms": ["windows-x64", "macos-universal", "linux-x64"],
+              "download_url": "${DOWNLOAD_URL}",
+              "size": ${size},
+              "sha256": "${sha256}"
+          }
+
+          # Replace existing or append
+          plugins = registry["plugins"]
+          idx = next((i for i, p in enumerate(plugins) if p["id"] == manifest["id"]), None)
+          if idx is not None:
+              plugins[idx] = entry
+          else:
+              plugins.append(entry)
+
+          with open("registry/plugins.json", "w") as f:
+              json.dump(registry, f, indent=2, ensure_ascii=False)
+              f.write("\n")
+          PYEOF
+
+          cat registry/plugins.json
+
+      - name: Commit registry update
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add registry/plugins.json
+          git diff --staged --quiet && echo "No registry changes" || \
+            (git commit -m "registry: update ${{ needs.parse-tag.outputs.plugin_id }} to v${{ needs.parse-tag.outputs.version }}" && \
+             git push origin HEAD:main)
