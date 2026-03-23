@@ -1,0 +1,47 @@
+{
+  "id": "everything-search",
+  "name": { "en": "Everything Search", "zh-CN": "Everything 搜索" },
+  "version": "1.0.0",
+  "description": { "en": "Search files globally using Everything by voidtools", "zh-CN": "使用 Everything (voidtools) 全局搜索文件" },
+  "author": "AlgerClipboard",
+  "icon": "ph:magnifying-glass",
+  "api_version": "1",
+  "frontend": {
+    "entry": "frontend/index.js"
+  },
+  "backend": {
+    "library": "backend/everything_search_plugin"
+  },
+  "permissions": [
+    "filesystem:read",
+    "shell:execute"
+  ],
+  "spotlight_modes": [
+    {
+      "id": "everything-search",
+      "prefix": "f"
+    }
+  ],
+  "hooks": [],
+  "settings": {
+    "prefix": {
+      "type": "string",
+      "label": { "en": "Spotlight Prefix", "zh-CN": "Spotlight 前缀" },
+      "default": "f",
+      "description": { "en": "Prefix to trigger Everything Search in Spotlight", "zh-CN": "在 Spotlight 中触发 Everything 搜索的前缀" }
+    },
+    "max_results": {
+      "type": "number",
+      "label": { "en": "Max Results", "zh-CN": "最大结果数" },
+      "default": 20,
+      "min": 5,
+      "max": 100,
+      "description": { "en": "Maximum number of search results to display", "zh-CN": "显示的最大搜索结果数量" }
+    },
+    "everything_path": {
+      "type": "string",
+      "label": { "en": "Everything64.dll Path", "zh-CN": "Everything64.dll 路径" },
+      "description": { "en": "Custom path to Everything64.dll (leave empty for auto-detect)", "zh-CN": "自定义 Everything64.dll 路径（留空自动检测）" }
+    }
+  }
+}

@@ -6,18 +6,54 @@ Official plugin repository for [AlgerClipboard](https://github.com/algerkong/Alg
 
 ## Available Plugins
 
-| Plugin | Description | Prefix |
-|--------|-------------|--------|
-| [IDE Projects](./plugins/ide-projects/) | Search and open recent projects from VS Code, Cursor, Windsurf, Trae, Antigravity, Zed | `\|` |
+| Plugin | Description | Prefix | Backend |
+|--------|-------------|--------|---------|
+| [IDE Projects](./plugins/ide-projects/) | Search and open recent projects from VS Code, Cursor, Windsurf, Trae, Antigravity, Zed | `\|` | Rust |
+| [Everything Search](./plugins/everything-search/) | Search files globally using Everything by voidtools | `f` | Rust |
 
 ## Installation
 
 1. Download the plugin `.zip` from [Releases](https://github.com/algerkong/AlgerClipboard-Plugin/releases)
 2. Extract to `{app_data_dir}/plugins/` (e.g., `%APPDATA%/com.alger.clipboard/plugins/` on Windows)
-3. Restart AlgerClipboard
-4. Enable the plugin in **Settings > Plugins**
+3. Enable the plugin in **Settings > Plugins**
+
+Plugins are hot-reloaded — no app restart needed after enabling.
 
 Or open the plugins folder directly from **Settings > Plugins > Open plugins folder**.
+
+## Plugin Features
+
+### Configuration
+
+Plugins can declare settings in `manifest.json` with 6 control types:
+
+- **string** — text input (supports `secret` for passwords)
+- **number** — number input (supports `min/max/step`)
+- **boolean** — toggle switch
+- **select** — dropdown menu
+- **shortcut** — keyboard shortcut recorder
+- **array** — add/remove list
+
+Settings are automatically rendered in the plugin's expandable card in **Settings > Plugins**.
+
+### Internationalization
+
+All text fields in `manifest.json` support i18n via locale maps:
+
+```json
+{
+  "name": { "en": "My Plugin", "zh-CN": "我的插件" },
+  "description": { "en": "Description", "zh-CN": "描述" }
+}
+```
+
+### Spotlight Integration
+
+Plugins can register Spotlight search modes with:
+- Custom prefix triggers (e.g., `f` for file search)
+- Footer shortcut hints
+- Keyboard modifiers (Ctrl+Enter, Shift+Enter for alternate actions)
+- Action buttons on each result row
 
 ## Plugin Registry
 
@@ -30,7 +66,7 @@ https://raw.githubusercontent.com/algerkong/AlgerClipboard-Plugin/main/registry/
 
 ## Developing Plugins
 
-See [CONTRIBUTING.md](./CONTRIBUTING.md) for the plugin development guide.
+See [CONTRIBUTING.md](./CONTRIBUTING.md) for the full plugin development guide.
 
 ### Quick Start
 
@@ -43,12 +79,14 @@ See [CONTRIBUTING.md](./CONTRIBUTING.md) for the plugin development guide.
 
 ```
 plugins/my-plugin/
-├── manifest.json           # Plugin metadata and permissions
+├── manifest.json           # Plugin metadata, permissions, settings
 ├── Cargo.toml              # Rust backend (optional)
 ├── src/
 │   └── lib.rs              # C ABI plugin implementation
-└── frontend/
-    └── index.js            # Frontend JS bundle
+├── frontend/
+│   └── index.js            # Frontend JS bundle
+└── backend/
+    └── my_plugin.dll       # Built native library
 ```
 
 ### Building

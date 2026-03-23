@@ -3,12 +3,14 @@
   "plugins": [
     {
       "id": "ide-projects",
-      "name": "IDE Projects",
-      "description": "Search and open recent projects from VS Code, Cursor, Windsurf, Trae, Antigravity, and Zed",
+      "name": { "en": "IDE Projects", "zh-CN": "IDE 项目" },
+      "description": { "en": "Search and open recent projects from VS Code, Cursor, Windsurf, Trae, Antigravity, and Zed", "zh-CN": "搜索并打开 VS Code、Cursor、Windsurf、Trae、Antigravity 和 Zed 的最近项目" },
       "author": "AlgerClipboard",
       "version": "1.0.0",
       "icon": "ph:folder-notch-open",
       "api_version": "1",
+      "prefix": "|",
+      "has_backend": true,
       "platforms": [
         "windows-x64",
         "macos-universal",
@@ -17,6 +19,18 @@
       "download_url": "https://github.com/algerkong/AlgerClipboard-Plugin/releases/download/ide-projects-v1.0.0/ide-projects-1.0.0.zip",
       "size": 2235418,
       "sha256": "0521a5955f0c933d512c25e622af31b3c6ca99d8e921a4f359de0adecbce0667"
+    },
+    {
+      "id": "everything-search",
+      "name": { "en": "Everything Search", "zh-CN": "Everything 搜索" },
+      "description": { "en": "Search files globally using Everything by voidtools", "zh-CN": "使用 Everything (voidtools) 全局搜索文件" },
+      "author": "AlgerClipboard",
+      "version": "1.0.0",
+      "icon": "ph:magnifying-glass",
+      "api_version": "1",
+      "prefix": "f",
+      "has_backend": true,
+      "platforms": ["windows"]
     }
   ]
 }
