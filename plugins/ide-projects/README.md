@@ -4,18 +4,36 @@ Search and open recent projects from multiple IDEs.
 
 ## Supported IDEs
 
+### VS Code Forks
 - VS Code
 - Cursor
 - Windsurf
 - Trae / Trae CN
 - Antigravity
+
+### JetBrains IDEs
+- IntelliJ IDEA (Ultimate & Community)
+- PyCharm (Professional & Community)
+- GoLand
+- WebStorm
+- CLion
+- PhpStorm
+- RustRover
+- Rider
+- DataGrip
+- RubyMine
+- DataSpell
+- Aqua
+- Android Studio
+
+### Other
 - Zed
 
 ## Usage
 
 In Spotlight, type `| ` (pipe + space) followed by your search query.
 
-Supports local projects and WSL/remote projects (VS Code forks).
+Supports local projects and WSL/remote projects (VS Code forks and JetBrains IDEs).
 
 ## Settings
 
@@ -27,8 +45,9 @@ Supports local projects and WSL/remote projects (VS Code forks).
 
 ## How It Works
 
-The plugin reads recent project history from each IDE's local database:
+The plugin reads recent project history from each IDE's local storage:
 - **VS Code forks**: Reads `state.vscdb` SQLite database in the IDE's config directory
+- **JetBrains IDEs**: Parses `recentProjects.xml` (or `recentSolutions.xml` for Rider) from `%APPDATA%/JetBrains/<Product><Version>/options/`
 - **Zed**: Reads `db.sqlite` in Zed's data directory
 
 Project icons are extracted from the system application list.
