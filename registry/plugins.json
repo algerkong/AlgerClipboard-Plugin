@@ -8,23 +8,21 @@
         "zh-CN": "IDE 项目"
       },
       "description": {
-        "en": "Search and open recent projects from VS Code, Cursor, Windsurf, Trae, Antigravity, and Zed",
-        "zh-CN": "搜索并打开 VS Code、Cursor、Windsurf、Trae、Antigravity 和 Zed 的最近项目"
+        "en": "Search and open recent projects from VS Code, Cursor, Windsurf, Trae, Zed, IntelliJ IDEA, PyCharm, GoLand, WebStorm, CLion, and more",
+        "zh-CN": "搜索并打开 VS Code、Cursor、Windsurf、Trae、Zed、IntelliJ IDEA、PyCharm、GoLand、WebStorm、CLion 等编辑器的最近项目"
       },
       "author": "AlgerClipboard",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "icon": "ph:folder-notch-open",
       "api_version": "1",
-      "prefix": "|",
-      "has_backend": true,
       "platforms": [
         "windows-x64",
         "macos-universal",
         "linux-x64"
       ],
-      "download_url": "https://github.com/algerkong/AlgerClipboard-Plugin/releases/download/ide-projects-v1.0.0/ide-projects-1.0.0.zip",
-      "size": 2235418,
-      "sha256": "0521a5955f0c933d512c25e622af31b3c6ca99d8e921a4f359de0adecbce0667"
+      "download_url": "https://github.com/algerkong/AlgerClipboard-Plugin/releases/download/ide-projects-v1.1.0/ide-projects-1.1.0.zip",
+      "size": 2272913,
+      "sha256": "52465273c16192d5263cd4d466c273605b7a0ac6dda1ac0f2791d7b030274a6e"
     },
     {
       "id": "everything-search",
