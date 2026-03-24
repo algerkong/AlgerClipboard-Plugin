@@ -1,0 +1,89 @@
+{
+  "id": "github-search",
+  "name": {
+    "en": "GitHub Search",
+    "zh-CN": "GitHub 搜索"
+  },
+  "version": "1.0.0",
+  "description": {
+    "en": "Search GitHub repositories, users, and issues",
+    "zh-CN": "搜索 GitHub 仓库、用户和 Issues"
+  },
+  "author": "AlgerClipboard",
+  "icon": "ph:github-logo",
+  "api_version": "1",
+  "frontend": {
+    "entry": "frontend/index.js"
+  },
+  "backend": {
+    "library": "backend/github_search_plugin"
+  },
+  "permissions": [
+    "network:request"
+  ],
+  "spotlight_modes": [
+    {
+      "id": "github-search",
+      "prefix": "gh",
+      "global_search": false,
+      "priority": 50
+    }
+  ],
+  "hooks": [],
+  "settings": {
+    "prefix": {
+      "type": "string",
+      "label": {
+        "en": "Spotlight Prefix",
+        "zh-CN": "Spotlight 前缀"
+      },
+      "default": "gh"
+    },
+    "github_token": {
+      "type": "string",
+      "label": {
+        "en": "GitHub Token (optional)",
+        "zh-CN": "GitHub Token (可选)"
+      },
+      "default": "",
+      "description": {
+        "en": "Personal access token for higher rate limits",
+        "zh-CN": "个人访问令牌，提高 API 限额"
+      }
+    },
+    "max_results": {
+      "type": "number",
+      "label": {
+        "en": "Max Results",
+        "zh-CN": "最大结果数"
+      },
+      "default": 10,
+      "min": 5,
+      "max": 30
+    },
+    "default_action": {
+      "type": "select",
+      "label": {
+        "en": "Default Action",
+        "zh-CN": "默认操作"
+      },
+      "default": "open",
+      "options": [
+        {
+          "label": {
+            "en": "Open in Browser",
+            "zh-CN": "在浏览器中打开"
+          },
+          "value": "open"
+        },
+        {
+          "label": {
+            "en": "Copy URL",
+            "zh-CN": "复制链接"
+          },
+          "value": "copy"
+        }
+      ]
+    }
+  }
+}

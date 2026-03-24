@@ -1,0 +1,56 @@
+{
+  "id": "password-generator",
+  "name": {
+    "en": "Password Generator",
+    "zh-CN": "密码生成器"
+  },
+  "version": "1.0.0",
+  "description": {
+    "en": "Generate secure passwords in multiple styles",
+    "zh-CN": "生成多种风格的安全密码"
+  },
+  "author": "AlgerClipboard",
+  "icon": "ph:key",
+  "api_version": "1",
+  "frontend": {
+    "entry": "frontend/index.js"
+  },
+  "permissions": [],
+  "spotlight_modes": [
+    {
+      "id": "password-generator",
+      "prefix": "pw",
+      "global_search": false,
+      "priority": 50
+    }
+  ],
+  "hooks": [],
+  "settings": {
+    "prefix": {
+      "type": "string",
+      "label": {
+        "en": "Spotlight Prefix",
+        "zh-CN": "Spotlight 前缀"
+      },
+      "default": "pw"
+    },
+    "default_length": {
+      "type": "number",
+      "label": {
+        "en": "Default Length",
+        "zh-CN": "默认长度"
+      },
+      "default": 16,
+      "min": 4,
+      "max": 128
+    },
+    "include_symbols": {
+      "type": "boolean",
+      "label": {
+        "en": "Include Symbols",
+        "zh-CN": "包含特殊字符"
+      },
+      "default": true
+    }
+  }
+}

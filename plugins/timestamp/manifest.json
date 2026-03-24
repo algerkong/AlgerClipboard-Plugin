@@ -1,0 +1,46 @@
+{
+  "id": "timestamp",
+  "name": {
+    "en": "Timestamp",
+    "zh-CN": "时间工具"
+  },
+  "version": "1.0.0",
+  "description": {
+    "en": "Convert timestamps, dates, and time zones",
+    "zh-CN": "时间戳转换、日期计算和时区转换"
+  },
+  "author": "AlgerClipboard",
+  "icon": "ph:clock",
+  "api_version": "1",
+  "frontend": {
+    "entry": "frontend/index.js"
+  },
+  "permissions": [],
+  "spotlight_modes": [
+    {
+      "id": "timestamp",
+      "prefix": "ts",
+      "global_search": true,
+      "priority": 85
+    }
+  ],
+  "hooks": [],
+  "settings": {
+    "prefix": {
+      "type": "string",
+      "label": {
+        "en": "Spotlight Prefix",
+        "zh-CN": "Spotlight 前缀"
+      },
+      "default": "ts"
+    },
+    "default_timezone": {
+      "type": "string",
+      "label": {
+        "en": "Extra Timezone",
+        "zh-CN": "额外时区"
+      },
+      "default": ""
+    }
+  }
+}

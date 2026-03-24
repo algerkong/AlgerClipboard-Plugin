@@ -1,0 +1,48 @@
+{
+  "id": "history",
+  "name": {
+    "en": "History",
+    "zh-CN": "历史记录"
+  },
+  "version": "1.0.0",
+  "description": {
+    "en": "Search previously selected Spotlight results",
+    "zh-CN": "搜索之前在 Spotlight 中选择过的结果"
+  },
+  "author": "AlgerClipboard",
+  "icon": "ph:clock-counter-clockwise",
+  "api_version": "1",
+  "frontend": {
+    "entry": "frontend/index.js"
+  },
+  "permissions": [],
+  "spotlight_modes": [
+    {
+      "id": "history",
+      "prefix": "!!",
+      "global_search": false,
+      "priority": 50
+    }
+  ],
+  "hooks": [],
+  "settings": {
+    "prefix": {
+      "type": "string",
+      "label": {
+        "en": "Spotlight Prefix",
+        "zh-CN": "Spotlight 前缀"
+      },
+      "default": "!!"
+    },
+    "max_history": {
+      "type": "number",
+      "label": {
+        "en": "Max History",
+        "zh-CN": "最大记录数"
+      },
+      "default": 200,
+      "min": 10,
+      "max": 1000
+    }
+  }
+}

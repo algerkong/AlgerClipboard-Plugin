@@ -1,0 +1,54 @@
+{
+  "id": "url-opener",
+  "name": {
+    "en": "URL Opener",
+    "zh-CN": "URL 快开"
+  },
+  "version": "1.0.0",
+  "description": {
+    "en": "Detect URLs and open them in browser",
+    "zh-CN": "识别网址并在浏览器中打开"
+  },
+  "author": "AlgerClipboard",
+  "icon": "ph:globe",
+  "api_version": "1",
+  "frontend": {
+    "entry": "frontend/index.js"
+  },
+  "permissions": [],
+  "spotlight_modes": [
+    {
+      "id": "url-opener",
+      "prefix": "",
+      "global_search": true,
+      "priority": 95
+    }
+  ],
+  "hooks": [],
+  "settings": {
+    "default_action": {
+      "type": "select",
+      "label": {
+        "en": "Default Action",
+        "zh-CN": "默认操作"
+      },
+      "default": "open",
+      "options": [
+        {
+          "label": {
+            "en": "Open in Browser",
+            "zh-CN": "在浏览器中打开"
+          },
+          "value": "open"
+        },
+        {
+          "label": {
+            "en": "Copy URL",
+            "zh-CN": "复制链接"
+          },
+          "value": "copy"
+        }
+      ]
+    }
+  }
+}

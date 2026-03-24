@@ -1,0 +1,60 @@
+{
+  "id": "color-toolbox",
+  "name": {
+    "en": "Color Toolbox",
+    "zh-CN": "颜色工具"
+  },
+  "version": "1.0.0",
+  "description": {
+    "en": "Parse and convert colors between HEX, RGB, HSL formats",
+    "zh-CN": "解析和转换 HEX、RGB、HSL 颜色格式"
+  },
+  "author": "AlgerClipboard",
+  "icon": "ph:palette",
+  "api_version": "1",
+  "frontend": {
+    "entry": "frontend/index.js"
+  },
+  "permissions": [],
+  "spotlight_modes": [
+    {
+      "id": "color-toolbox",
+      "prefix": "cc",
+      "global_search": true,
+      "priority": 90
+    }
+  ],
+  "hooks": [],
+  "settings": {
+    "prefix": {
+      "type": "string",
+      "label": {
+        "en": "Spotlight Prefix",
+        "zh-CN": "Spotlight 前缀"
+      },
+      "default": "cc"
+    },
+    "default_format": {
+      "type": "select",
+      "label": {
+        "en": "Default Copy Format",
+        "zh-CN": "默认复制格式"
+      },
+      "default": "hex",
+      "options": [
+        {
+          "label": "HEX",
+          "value": "hex"
+        },
+        {
+          "label": "RGB",
+          "value": "rgb"
+        },
+        {
+          "label": "HSL",
+          "value": "hsl"
+        }
+      ]
+    }
+  }
+}

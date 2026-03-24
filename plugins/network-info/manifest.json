@@ -1,0 +1,73 @@
+{
+  "id": "network-info",
+  "name": {
+    "en": "Network Info",
+    "zh-CN": "网络信息"
+  },
+  "version": "1.0.0",
+  "description": {
+    "en": "View IP addresses, DNS lookup, and network information",
+    "zh-CN": "查看 IP 地址、DNS 解析和网络信息"
+  },
+  "author": "AlgerClipboard",
+  "icon": "ph:wifi-high",
+  "api_version": "1",
+  "frontend": {
+    "entry": "frontend/index.js"
+  },
+  "backend": {
+    "library": "backend/network_info_plugin"
+  },
+  "permissions": [
+    "network:request"
+  ],
+  "spotlight_modes": [
+    {
+      "id": "network-info",
+      "prefix": "ip",
+      "global_search": true,
+      "priority": 70
+    }
+  ],
+  "hooks": [],
+  "settings": {
+    "prefix": {
+      "type": "string",
+      "label": {
+        "en": "Spotlight Prefix",
+        "zh-CN": "Spotlight 前缀"
+      },
+      "default": "ip"
+    },
+    "public_ip_api": {
+      "type": "select",
+      "label": {
+        "en": "Public IP API",
+        "zh-CN": "公网 IP 查询 API"
+      },
+      "default": "ipinfo",
+      "options": [
+        {
+          "label": "ipinfo.io",
+          "value": "ipinfo"
+        },
+        {
+          "label": "ip-api.com",
+          "value": "ipapi"
+        },
+        {
+          "label": "ifconfig.me",
+          "value": "ifconfig"
+        }
+      ]
+    },
+    "show_ipv6": {
+      "type": "boolean",
+      "label": {
+        "en": "Show IPv6",
+        "zh-CN": "显示 IPv6"
+      },
+      "default": true
+    }
+  }
+}

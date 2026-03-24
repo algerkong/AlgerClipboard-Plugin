@@ -1,0 +1,52 @@
+{
+  "id": "calculator",
+  "name": {
+    "en": "Calculator",
+    "zh-CN": "计算器"
+  },
+  "version": "1.0.0",
+  "description": {
+    "en": "Quick calculator with unit conversion and base conversion",
+    "zh-CN": "快速计算器，支持单位转换和进制转换"
+  },
+  "author": "AlgerClipboard",
+  "icon": "ph:calculator",
+  "api_version": "1",
+  "frontend": {
+    "entry": "frontend/index.js"
+  },
+  "permissions": [],
+  "spotlight_modes": [
+    {
+      "id": "calculator",
+      "prefix": "=",
+      "global_search": true,
+      "priority": 95
+    }
+  ],
+  "hooks": [],
+  "settings": {
+    "prefix": {
+      "type": "string",
+      "label": {
+        "en": "Spotlight Prefix",
+        "zh-CN": "Spotlight 前缀"
+      },
+      "default": "=",
+      "description": {
+        "en": "Prefix to trigger Calculator in Spotlight",
+        "zh-CN": "在 Spotlight 中触发计算器的前缀"
+      }
+    },
+    "decimal_places": {
+      "type": "number",
+      "label": {
+        "en": "Decimal Places",
+        "zh-CN": "小数位数"
+      },
+      "default": 6,
+      "min": 0,
+      "max": 15
+    }
+  }
+}

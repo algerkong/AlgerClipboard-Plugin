@@ -1,0 +1,72 @@
+{
+  "id": "web-search",
+  "name": {
+    "en": "Web Search",
+    "zh-CN": "网页搜索"
+  },
+  "version": "1.0.0",
+  "description": {
+    "en": "Search the web with multiple search engines",
+    "zh-CN": "使用多个搜索引擎搜索网页"
+  },
+  "author": "AlgerClipboard",
+  "icon": "ph:magnifying-glass",
+  "api_version": "1",
+  "frontend": {
+    "entry": "frontend/index.js"
+  },
+  "permissions": [],
+  "spotlight_modes": [
+    {
+      "id": "web-search",
+      "prefix": "??",
+      "global_search": false,
+      "priority": 50
+    }
+  ],
+  "hooks": [],
+  "settings": {
+    "prefix": {
+      "type": "string",
+      "label": {
+        "en": "Spotlight Prefix",
+        "zh-CN": "Spotlight 前缀"
+      },
+      "default": "??"
+    },
+    "default_engine": {
+      "type": "select",
+      "label": {
+        "en": "Default Engine",
+        "zh-CN": "默认搜索引擎"
+      },
+      "default": "google",
+      "options": [
+        {
+          "label": "Google",
+          "value": "google"
+        },
+        {
+          "label": "Bing",
+          "value": "bing"
+        },
+        {
+          "label": "Baidu",
+          "value": "baidu"
+        },
+        {
+          "label": "DuckDuckGo",
+          "value": "duckduckgo"
+        },
+        {
+          "label": "GitHub",
+          "value": "github"
+        },
+        {
+          "label": "Stack Overflow",
+          "value": "stackoverflow"
+        }
+      ]
+    }
+  }
+}
