@@ -117,6 +117,29 @@
       "sha256": "307869ccf3f06bbf7fd1330d5786fa377751ef8626016ade00503f439520def3"
     },
     {
+      "id": "history",
+      "name": {
+        "en": "History",
+        "zh-CN": "历史记录"
+      },
+      "description": {
+        "en": "Search previously selected Spotlight results",
+        "zh-CN": "搜索之前在 Spotlight 中选择过的结果"
+      },
+      "author": "AlgerClipboard",
+      "version": "1.0.1",
+      "icon": "ph:clock-counter-clockwise",
+      "api_version": "1",
+      "platforms": [
+        "windows-x64",
+        "macos-universal",
+        "linux-x64"
+      ],
+      "download_url": "https://github.com/algerkong/AlgerClipboard-Plugin/releases/download/history-v1.0.1/history-1.0.1.zip",
+      "size": 3758,
+      "sha256": "1f6e936944f75cd46f587b3ced4a2546c9586f78dd4aca784a16830c89f5dd4b"
+    },
+    {
       "id": "ide-projects",
       "name": {
         "en": "IDE Projects",
