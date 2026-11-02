@@ -207,6 +207,29 @@
       "download_url": "https://github.com/algerkong/AlgerClipboard-Plugin/releases/download/password-generator-v1.0.1/password-generator-1.0.1.zip",
       "size": 5668,
       "sha256": "b19a04eb3a0fe878415fd71a988e0506213e891dc605ef9878c005f4f7682751"
+    },
+    {
+      "id": "timestamp",
+      "name": {
+        "en": "Timestamp",
+        "zh-CN": "时间工具"
+      },
+      "description": {
+        "en": "Convert timestamps, dates, and time zones",
+        "zh-CN": "时间戳转换、日期计算和时区转换"
+      },
+      "author": "AlgerClipboard",
+      "version": "1.0.1",
+      "icon": "ph:clock",
+      "api_version": "1",
+      "platforms": [
+        "windows-x64",
+        "macos-universal",
+        "linux-x64"
+      ],
+      "download_url": "https://github.com/algerkong/AlgerClipboard-Plugin/releases/download/timestamp-v1.0.1/timestamp-1.0.1.zip",
+      "size": 5580,
+      "sha256": "9a9960af57188ac3b747b8e4f2b9baa7d1ebd60b3682097cefbea93ad78ff5e7"
     }
   ]
 }
