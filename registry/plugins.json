@@ -48,6 +48,29 @@
       "sha256": "0ce84719860ac688e20ae5107bcd4f724132fe53dcfee1d9c3188993064eefcb"
     },
     {
+      "id": "color-toolbox",
+      "name": {
+        "en": "Color Toolbox",
+        "zh-CN": "颜色工具"
+      },
+      "description": {
+        "en": "Parse and convert colors between HEX, RGB, HSL formats",
+        "zh-CN": "解析和转换 HEX、RGB、HSL 颜色格式"
+      },
+      "author": "AlgerClipboard",
+      "version": "1.0.1",
+      "icon": "ph:palette",
+      "api_version": "1",
+      "platforms": [
+        "windows-x64",
+        "macos-universal",
+        "linux-x64"
+      ],
+      "download_url": "https://github.com/algerkong/AlgerClipboard-Plugin/releases/download/color-toolbox-v1.0.1/color-toolbox-1.0.1.zip",
+      "size": 9201,
+      "sha256": "9648453459b4e79ef0fe7e13386010e81a6cec4db99f420c10ecb069d541bf34"
+    },
+    {
       "id": "everything-search",
       "name": {
         "en": "Everything Search",
