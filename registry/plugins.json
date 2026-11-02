@@ -150,7 +150,7 @@
         "zh-CN": "搜索并打开 VS Code、Cursor、Windsurf、Trae、Zed、IntelliJ IDEA、PyCharm、GoLand、WebStorm、CLion 等编辑器的最近项目"
       },
       "author": "AlgerClipboard",
-      "version": "1.1.0",
+      "version": "1.1.1",
       "icon": "ph:folder-notch-open",
       "api_version": "1",
       "platforms": [
@@ -158,9 +158,9 @@
         "macos-universal",
         "linux-x64"
       ],
-      "download_url": "https://github.com/algerkong/AlgerClipboard-Plugin/releases/download/ide-projects-v1.1.0/ide-projects-1.1.0.zip",
-      "size": 2272913,
-      "sha256": "52465273c16192d5263cd4d466c273605b7a0ac6dda1ac0f2791d7b030274a6e"
+      "download_url": "https://github.com/algerkong/AlgerClipboard-Plugin/releases/download/ide-projects-v1.1.1/ide-projects-1.1.1.zip",
+      "size": 2276374,
+      "sha256": "8c9b33df0ea855d9303b65289d47469d68af5598190f3cfa3dccbd8840823080"
     },
     {
       "id": "network-info",
