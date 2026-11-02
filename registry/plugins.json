@@ -163,6 +163,29 @@
       "sha256": "52465273c16192d5263cd4d466c273605b7a0ac6dda1ac0f2791d7b030274a6e"
     },
     {
+      "id": "network-info",
+      "name": {
+        "en": "Network Info",
+        "zh-CN": "网络信息"
+      },
+      "description": {
+        "en": "View IP addresses, DNS lookup, and network information",
+        "zh-CN": "查看 IP 地址、DNS 解析和网络信息"
+      },
+      "author": "AlgerClipboard",
+      "version": "1.0.1",
+      "icon": "ph:wifi-high",
+      "api_version": "1",
+      "platforms": [
+        "windows-x64",
+        "macos-universal",
+        "linux-x64"
+      ],
+      "download_url": "https://github.com/algerkong/AlgerClipboard-Plugin/releases/download/network-info-v1.0.1/network-info-1.0.1.zip",
+      "size": 574245,
+      "sha256": "454ad13c100ae942fb7fe86d84835c674fe7f5c19cf63155966608b96da0bb26"
+    },
+    {
       "id": "password-generator",
       "name": {
         "en": "Password Generator",
