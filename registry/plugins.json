@@ -253,6 +253,29 @@
       "download_url": "https://github.com/algerkong/AlgerClipboard-Plugin/releases/download/url-opener-v1.0.1/url-opener-1.0.1.zip",
       "size": 3336,
       "sha256": "4ca74053a7c796c262487d0eb495cfa24541d46e03472c3c3cedcc79fc7d0838"
+    },
+    {
+      "id": "web-search",
+      "name": {
+        "en": "Web Search",
+        "zh-CN": "网页搜索"
+      },
+      "description": {
+        "en": "Search the web with multiple search engines",
+        "zh-CN": "使用多个搜索引擎搜索网页"
+      },
+      "author": "AlgerClipboard",
+      "version": "1.0.1",
+      "icon": "ph:magnifying-glass",
+      "api_version": "1",
+      "platforms": [
+        "windows-x64",
+        "macos-universal",
+        "linux-x64"
+      ],
+      "download_url": "https://github.com/algerkong/AlgerClipboard-Plugin/releases/download/web-search-v1.0.1/web-search-1.0.1.zip",
+      "size": 3129,
+      "sha256": "78e93008204a85acd21d74141b2ed581beeb9520d828220b3f25f5d9794cb89f"
     }
   ]
 }
