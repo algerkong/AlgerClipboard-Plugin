@@ -94,6 +94,29 @@
       "sha256": "3a7c264fc4fc561f52206d402b3f285fb67df874afd163676fa573bcd01ae6a4"
     },
     {
+      "id": "github-search",
+      "name": {
+        "en": "GitHub Search",
+        "zh-CN": "GitHub 搜索"
+      },
+      "description": {
+        "en": "Search GitHub repositories, users, and issues",
+        "zh-CN": "搜索 GitHub 仓库、用户和 Issues"
+      },
+      "author": "AlgerClipboard",
+      "version": "1.0.1",
+      "icon": "ph:github-logo",
+      "api_version": "1",
+      "platforms": [
+        "windows-x64",
+        "macos-universal",
+        "linux-x64"
+      ],
+      "download_url": "https://github.com/algerkong/AlgerClipboard-Plugin/releases/download/github-search-v1.0.1/github-search-1.0.1.zip",
+      "size": 401044,
+      "sha256": "307869ccf3f06bbf7fd1330d5786fa377751ef8626016ade00503f439520def3"
+    },
+    {
       "id": "ide-projects",
       "name": {
         "en": "IDE Projects",
