@@ -2,6 +2,29 @@
   "version": 1,
   "plugins": [
     {
+      "id": "browser-bookmarks",
+      "name": {
+        "en": "Browser Bookmarks",
+        "zh-CN": "浏览器书签"
+      },
+      "description": {
+        "en": "Search bookmarks from Chrome, Edge, Firefox, Brave",
+        "zh-CN": "搜索 Chrome、Edge、Firefox、Brave 的书签"
+      },
+      "author": "AlgerClipboard",
+      "version": "1.0.1",
+      "icon": "ph:bookmark",
+      "api_version": "1",
+      "platforms": [
+        "windows-x64",
+        "macos-universal",
+        "linux-x64"
+      ],
+      "download_url": "https://github.com/algerkong/AlgerClipboard-Plugin/releases/download/browser-bookmarks-v1.0.1/browser-bookmarks-1.0.1.zip",
+      "size": 430817,
+      "sha256": "2b46ef76b403cf8249ab2f42ae756def66fe175084705592a46c8c67332e0f86"
+    },
+    {
       "id": "calculator",
       "name": {
         "en": "Calculator",
