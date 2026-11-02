@@ -230,6 +230,29 @@
       "download_url": "https://github.com/algerkong/AlgerClipboard-Plugin/releases/download/timestamp-v1.0.1/timestamp-1.0.1.zip",
       "size": 5580,
       "sha256": "9a9960af57188ac3b747b8e4f2b9baa7d1ebd60b3682097cefbea93ad78ff5e7"
+    },
+    {
+      "id": "url-opener",
+      "name": {
+        "en": "URL Opener",
+        "zh-CN": "URL 快开"
+      },
+      "description": {
+        "en": "Detect URLs and open them in browser",
+        "zh-CN": "识别网址并在浏览器中打开"
+      },
+      "author": "AlgerClipboard",
+      "version": "1.0.1",
+      "icon": "ph:globe",
+      "api_version": "1",
+      "platforms": [
+        "windows-x64",
+        "macos-universal",
+        "linux-x64"
+      ],
+      "download_url": "https://github.com/algerkong/AlgerClipboard-Plugin/releases/download/url-opener-v1.0.1/url-opener-1.0.1.zip",
+      "size": 3336,
+      "sha256": "4ca74053a7c796c262487d0eb495cfa24541d46e03472c3c3cedcc79fc7d0838"
     }
   ]
 }
