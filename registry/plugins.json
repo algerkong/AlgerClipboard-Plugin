@@ -161,6 +161,29 @@
       "download_url": "https://github.com/algerkong/AlgerClipboard-Plugin/releases/download/ide-projects-v1.1.0/ide-projects-1.1.0.zip",
       "size": 2272913,
       "sha256": "52465273c16192d5263cd4d466c273605b7a0ac6dda1ac0f2791d7b030274a6e"
+    },
+    {
+      "id": "password-generator",
+      "name": {
+        "en": "Password Generator",
+        "zh-CN": "密码生成器"
+      },
+      "description": {
+        "en": "Generate secure passwords in multiple styles",
+        "zh-CN": "生成多种风格的安全密码"
+      },
+      "author": "AlgerClipboard",
+      "version": "1.0.1",
+      "icon": "ph:key",
+      "api_version": "1",
+      "platforms": [
+        "windows-x64",
+        "macos-universal",
+        "linux-x64"
+      ],
+      "download_url": "https://github.com/algerkong/AlgerClipboard-Plugin/releases/download/password-generator-v1.0.1/password-generator-1.0.1.zip",
+      "size": 5668,
+      "sha256": "b19a04eb3a0fe878415fd71a988e0506213e891dc605ef9878c005f4f7682751"
     }
   ]
 }
