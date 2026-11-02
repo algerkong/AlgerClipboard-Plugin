@@ -4,7 +4,7 @@
     "en": "History",
     "zh-CN": "历史记录"
   },
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": {
     "en": "Search previously selected Spotlight results",
     "zh-CN": "搜索之前在 Spotlight 中选择过的结果"

@@ -4,7 +4,7 @@
     "en": "GitHub Search",
     "zh-CN": "GitHub 搜索"
   },
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": {
     "en": "Search GitHub repositories, users, and issues",
     "zh-CN": "搜索 GitHub 仓库、用户和 Issues"

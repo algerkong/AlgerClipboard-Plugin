@@ -4,7 +4,7 @@
     "en": "Network Info",
     "zh-CN": "网络信息"
   },
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": {
     "en": "View IP addresses, DNS lookup, and network information",
     "zh-CN": "查看 IP 地址、DNS 解析和网络信息"

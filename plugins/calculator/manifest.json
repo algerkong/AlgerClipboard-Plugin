@@ -4,7 +4,7 @@
     "en": "Calculator",
     "zh-CN": "计算器"
   },
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": {
     "en": "Quick calculator with unit conversion and base conversion",
     "zh-CN": "快速计算器，支持单位转换和进制转换"

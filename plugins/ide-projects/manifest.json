@@ -1,7 +1,7 @@
 {
   "id": "ide-projects",
   "name": { "en": "IDE Projects", "zh-CN": "IDE 项目" },
-  "version": "1.0.0",
+  "version": "1.1.1",
   "description": { "en": "Search and open recent projects from VS Code, Cursor, Windsurf, Trae, Zed, IntelliJ IDEA, PyCharm, GoLand, WebStorm, CLion, and more", "zh-CN": "搜索并打开 VS Code、Cursor、Windsurf、Trae、Zed、IntelliJ IDEA、PyCharm、GoLand、WebStorm、CLion 等编辑器的最近项目" },
   "author": "AlgerClipboard",
   "icon": "ph:folder-notch-open",

@@ -4,7 +4,7 @@
     "en": "Color Toolbox",
     "zh-CN": "颜色工具"
   },
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": {
     "en": "Parse and convert colors between HEX, RGB, HSL formats",
     "zh-CN": "解析和转换 HEX、RGB、HSL 颜色格式"

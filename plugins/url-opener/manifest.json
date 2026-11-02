@@ -4,7 +4,7 @@
     "en": "URL Opener",
     "zh-CN": "URL 快开"
   },
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": {
     "en": "Detect URLs and open them in browser",
     "zh-CN": "识别网址并在浏览器中打开"

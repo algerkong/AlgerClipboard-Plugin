@@ -4,7 +4,7 @@
     "en": "Timestamp",
     "zh-CN": "时间工具"
   },
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": {
     "en": "Convert timestamps, dates, and time zones",
     "zh-CN": "时间戳转换、日期计算和时区转换"

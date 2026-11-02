@@ -4,7 +4,7 @@
     "en": "Web Search",
     "zh-CN": "网页搜索"
   },
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": {
     "en": "Search the web with multiple search engines",
     "zh-CN": "使用多个搜索引擎搜索网页"

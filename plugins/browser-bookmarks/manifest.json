@@ -4,7 +4,7 @@
     "en": "Browser Bookmarks",
     "zh-CN": "浏览器书签"
   },
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": {
     "en": "Search bookmarks from Chrome, Edge, Firefox, Brave",
     "zh-CN": "搜索 Chrome、Edge、Firefox、Brave 的书签"
