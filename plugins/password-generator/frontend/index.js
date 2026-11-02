@@ -283,7 +283,6 @@
 
     footerHints: [
       { kbd: "\u21B5", label: t("copyHint") },
-      { kbd: "Tab", label: t("regenerate") },
     ],
 
     onQuery: function (query) {

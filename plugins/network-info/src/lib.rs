@@ -56,8 +56,8 @@ fn host_http_get(url: &str) -> Result<String, String> {
 
         let ptr = ((*HOST).http_request)(
             (*HOST).ctx,
-            url_cs.as_ptr(),
             method_cs.as_ptr(),
+            url_cs.as_ptr(),
             headers_cs.as_ptr(),
             body_cs.as_ptr(),
         );

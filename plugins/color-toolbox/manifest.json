@@ -19,7 +19,7 @@
   "spotlight_modes": [
     {
       "id": "color-toolbox",
-      "prefix": "cc",
+      "prefix": "color",
       "global_search": true,
       "priority": 90
     }
@@ -32,7 +32,7 @@
         "en": "Spotlight Prefix",
         "zh-CN": "Spotlight 前缀"
       },
-      "default": "cc"
+      "default": "color"
     },
     "default_format": {
       "type": "select",

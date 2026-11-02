@@ -97,6 +97,7 @@
       return Promise.resolve(cachedProjects);
     }
     return api.invokeBackend("scan", {}).then(function (projects) {
+      projects = projects || [];
       cachedProjects = projects;
       cacheTime = Date.now();
       return projects;

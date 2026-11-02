@@ -117,7 +117,7 @@
     }
   });
 
-  api.onSettingChanged(function (key, value) {
+  api.onSettingChanged("*", function (key, value) {
     if (key === "max_history" && !isNaN(Number(value))) {
       maxHistory = Number(value);
     }
